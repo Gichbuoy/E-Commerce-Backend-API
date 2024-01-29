@@ -16,5 +16,5 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use("/api/user", authRouter);
 app.listen(PORT, () => {
-    console.log(`The Server is running at PORT ${PORT}`);
+    console.log(`Server is running at PORT ${PORT}`);
 });

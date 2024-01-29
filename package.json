@@ -1,6 +1,6 @@
 {
   "name": "e-commerce-backend-api",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "E-Commerce API development",
   "main": "index.js",
   "scripts": {
