@@ -2,6 +2,7 @@ const { generateToken } = require("../config/jwtToken");
 const User = require("../models/user.model");
 const asyncHandler = require("express-async-handler");
 const validateMongoDbId = require("../utils/validateMongodbId");
+const { generateRefreshToken } = require("../config/refreshToken");
 
 
 // create a new user
@@ -23,6 +24,16 @@ const loginUserCtrler = asyncHandler(async (req, res) => {
     // check if user exists or not
     const findUser = await User.findOne({ email });
     if (findUser && (await findUser.isPasswordMatched(password))) {
+        const refreshToken = await generateRefreshToken(findUser?._id);
+        const updateuser = await User.findByIdAndUpdate(findUser.id, {
+            refreshToken: refreshToken,
+        }, 
+        { new:true }
+    );
+        res.cookie('refreshToken', refreshToken, {
+            httpOnly: true,
+            maxAge: 72 * 60 * 60 * 1000,
+        });
         res.json({
             _id: findUser?._id,
             firstname: findUser?.firstname,
@@ -35,6 +46,9 @@ const loginUserCtrler = asyncHandler(async (req, res) => {
         throw new Error("Invalid Credentials");
     }
 });
+
+
+// handle refresh token
 
 // update a user
 const updateUser = asyncHandler(async (req, res) => {
