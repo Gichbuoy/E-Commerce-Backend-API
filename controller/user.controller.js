@@ -14,7 +14,7 @@ const createUser = asyncHandler(async (req, res) => {
     }
 });
 
-// login 
+// login a user
 const loginUserCtrler = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
     // check if user exists or not
@@ -33,4 +33,72 @@ const loginUserCtrler = asyncHandler(async (req, res) => {
     }
 });
 
-module.exports = { createUser, loginUserCtrler };
+// update a user
+const updateUser = asyncHandler(async (req, res) => {
+    const { id } = req.params;
+    try {
+        const updateUser = await User.findByIdAndUpdate(
+            id,
+            {
+                firstname: req?.body?.firstname,
+                lastname: req?.body?.lastname,
+                email: req?.body?.email,
+                mobile: req?.body?.mobile,
+            },
+            {
+                new: true,
+            }
+        );
+        res.json(updateUser);
+    } catch (error) {
+        throw new Error(error);
+    }
+});
+
+
+// Get all users
+const getAllUser = asyncHandler(async (req, res) => {
+    try {
+        const getUsers = await User.find();
+        res.json(getUsers);
+    } catch (error){
+        throw new Error(error);
+    }
+});
+
+// Get a single user
+const getUser = asyncHandler(async (req, res) => {
+    console.log(req.params);
+    const { id } = req.params;
+    try {
+        const getUser = await User.findById(id);
+        res.json({
+            getUser,
+        });
+    } catch (error) {
+        throw new Error(error);
+    }
+});
+
+// Delete a user
+const deleteUser = asyncHandler(async (req, res) => {
+    console.log(req.params);
+    const { id } = req.params;
+    try {
+        const deleteUser = await User.findByIdAndDelete(id);
+        res.json({
+            deleteUser,
+        });
+    } catch (error) {
+        throw new Error(error);
+    }
+});
+
+module.exports = {
+    createUser,
+    loginUserCtrler,
+    getAllUser,
+    getUser,
+    deleteUser,
+    updateUser
+};
