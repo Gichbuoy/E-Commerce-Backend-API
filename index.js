@@ -7,6 +7,7 @@ const authRouter = require("./routes/authRoute");
 const productRouter = require("./routes/productRoute");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
+const morgan = require('morgan');
 const { notFound, errorHandler } = require("./middleware/errorHandler");
 dbConnect();
 
@@ -14,6 +15,7 @@ dbConnect();
 //     res.send("Hello pirate");
 // });
 
+app.use(morgan('dev')); // middleware to log HTTP requests and errors
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
