@@ -62,6 +62,12 @@ npm start
 
 Once the server is running, you can access the API endpoints using tools like [Postman](https://learning.postman.com/docs/introduction/overview/) or [Insomnia](https://docs.insomnia.rest/) or directly from the [Frontend application](https://github.com/Gichbuoy/E-commerce-website).
 
+
+## Screenshots
+
+`Connection to mongoDB`
+![Screenshot1](./Screenshots/Screenshot%20(130).png)
+
 ## API Endpoints
 
 For detailed information about the available endpoints, refer to the [API Documentation](./API_DOCUMENTATION.md).
