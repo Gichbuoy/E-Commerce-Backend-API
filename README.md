@@ -66,7 +66,59 @@ Once the server is running, you can access the API endpoints using tools like [P
 ## Screenshots
 
 `Connection to mongoDB`
+
 ![Screenshot1](./Screenshots/Screenshot%20(130).png)
+
+
+`User Login`
+
+![Screenshot1](./Screenshots/Screenshot%20(131).png)
+
+
+`Registering new User`
+
+![Screenshot1](./Screenshots/Screenshot%20(133).png)
+
+
+`Blocking a User`
+
+![Screenshot1](./Screenshots/Screenshot%20(134).png)
+
+
+`Refresh Token for Authentication`
+
+![Screenshot1](./Screenshots/Screenshot%20(140).png)
+
+
+`Create new Product`
+
+![Screenshot1](./Screenshots/Screenshot%20(141).png)
+
+
+`Declare the data schema for MongoDB Model`
+
+![Screenshot1](./Screenshots/Screenshot%20(142).png)
+
+
+`Products fetched from mongoDB Compass`
+
+![Screenshot1](./Screenshots/Screenshot%20(143).png)
+
+
+`Get Products by ID`
+
+![Screenshot1](./Screenshots/Screenshot%20(144).png)
+
+
+`Get All Products`
+
+![Screenshot1](./Screenshots/Screenshot%20(145).png)
+
+
+
+
+
+
 
 ## API Endpoints
 
